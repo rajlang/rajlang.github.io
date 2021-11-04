@@ -1,0 +1,17 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 72px 0;
+  width: 100%;
+}
+
+.featureImage {
+  max-width: 60%;
+  max-height: 128px;
+  margin: 0 auto;
+}
+
+.featureHeading {
+  font-size: var(--ifm-h3-font-size);
+  padding-top: 1rem;
+}
