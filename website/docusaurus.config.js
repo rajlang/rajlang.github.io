@@ -18,7 +18,7 @@ const config = {
 
   favicon: "/favicon.svg",
 
-  organizationName: "rajlang", 
+  organizationName: "rajlang",
   projectName: "rajlang.github.io", // Repo name.
   deploymentBranch: "gh-pages", // Deployment branch.
 
@@ -104,6 +104,15 @@ const config = {
   customFields: {
     description:
       "A modern, easy-to-use multi-purpose programming language that can be compiled to many languages",
+    firebaseConfig: {
+      apiKey: "AIzaSyBgnf6wO4ittJPm7OyhjMAaStOa-_DHZ1o",
+      authDomain: "rajlang-proposals.firebaseapp.com",
+      projectId: "rajlang-proposals",
+      storageBucket: "rajlang-proposals.appspot.com",
+      messagingSenderId: "370974570374",
+      appId: "1:370974570374:web:cf421407e179d7a1d11e07",
+      measurementId: "G-5SNZ00EJCE",
+    },
   },
 
   presets: [
@@ -169,6 +178,12 @@ const config = {
             position: "right",
             className: "header-github-link",
             "aria-label": "GitHub repository",
+          },
+          {
+            href: "/profile",
+            position: "right",
+            className: "header-profile",
+            "aria-label": "Profile",
           },
         ],
       },

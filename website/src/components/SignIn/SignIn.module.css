@@ -1,0 +1,77 @@
+.profile {
+    display: flex;
+    place-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.profileImage {
+    border-radius: 50%;
+    width: 10rem;
+}
+
+.profileEmail {
+    position: relative;
+}
+
+.profileEmail .indicator {
+    display: inline-flex;
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-left: 0.5rem;
+    border-radius: 50%;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.verified .indicator {
+    background: #00c851;
+}
+
+.notVerified .indicator {
+    background: #ff4444;
+}
+
+.profileEmail .indicator::after {
+    display: inline-flex;
+    position: absolute;
+    width: max-content;
+    font-size: 0.75rem;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+    margin-bottom: 1rem;
+    top: 0;
+    left: 100%;
+    margin-left: 0.1rem;
+    text-align: center;
+    transform: scale(0);
+    transition: transform 0.2s ease-in-out;
+}
+
+.profileEmail .indicator:hover:after {
+    transform: scale(1);
+}
+
+.verified .indicator::after {
+    content: "Verified Email";
+    background-color: #00ff66;
+}
+
+.notVerified .indicator::after {
+    content: "Email Not Verified. Please click the dot to verify";
+    background-color: #ff0000;
+}
+
+.profileSettings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.buttonDanger {
+    --ifm-color-primary: #ff0000;
+    --ifm-color-primary-dark: #cc0000;
+}

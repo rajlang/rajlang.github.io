@@ -4,7 +4,9 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 
 import Link from "@docusaurus/Link";
 
-import useBaseUrl from "@docusaurus/useBaseUrl";
+// import useBaseUrl from "@docusaurus/useBaseUrl";
+import { initializeApp } from "firebase/app";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import clsx from "clsx";
 
@@ -12,20 +14,32 @@ import {
   HomepageAnnouncement,
   HomepageFeatures,
   Space,
-  HomepageTyping
+  HomepageTyping,
 } from "../components"
 
 import styles from "./index.module.css";
-
 
 function HomepageHeader() {
 
   const {
     siteConfig: {
-      customFields: { description },
+      customFields: { description, firebaseConfig },
       tagline,
     },
   } = useDocusaurusContext();
+
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  let user = auth.currentUser;
+  onAuthStateChanged(auth, user => {
+    if (!!user) {
+      let url = `url(${user.photoURL || `"https://avatars.dicebear.com/api/jdenticon/${user.displayName}.svg"`})`;
+      document.documentElement.style.setProperty("--pp-url", url);
+      // document.getElementsByClassName("header-profile")[0].setAttribute("style", `--pp-url: url(${user.photoURL || `https://avatars.dicebear.com/api/jdenticon/${user.displayName}.svg`})`);
+      console.log(url);
+    }
+  })
 
   return (
     <header className={clsx("", styles.hero)}>
